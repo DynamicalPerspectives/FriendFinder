@@ -5,8 +5,7 @@
 // We are linking our routes to a series of "data" sources.
 // These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
-
-var friendData 	= require('../data/friends.js');
+var friends = require("../data/friends");
 
 var path = require('path');
 
@@ -22,7 +21,7 @@ module.exports = function(app){
   // ---------------------------------------------------------------------------
 
 	app.get('/api/friends', function(req, res){
-		res.json(friendData);
+		res.json(friends);
 
 	});
 
@@ -39,7 +38,7 @@ module.exports = function(app){
 		var difference = 0;
 		var match;
 
-		friendData.forEach(function(friend) {
+		friends.forEach(function(friend) {
 				console.log(friend);
 				console.log(req.body);
 
@@ -56,7 +55,7 @@ module.exports = function(app){
 	});
 		  res.json(match);
 
-    friendData.push(req.body);
+    friends.push(req.body);
 
     });
 
